@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   var username = req.param('username');
   var email= req.param('emailaddress');
   var password= req.param('password');
-  res.send('Hello ' + username);
+
 });
 
 router.post('/', function(req, res) {
@@ -27,7 +27,8 @@ router.post('/', function(req, res) {
 
   // Submitting to Database
   collection.insert({
-    "name": name,
+    "fullname": name,
+    "username": username,
     "email": email,
     "password": password
   }, function(err, doc) {
