@@ -3,31 +3,64 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('got something');
-  var name=req.param('fullName')
+  var query_name = req.param('username');
+
+  console.log("Searching Username: " + query_name);
+  var db = req.db;
+  var collection = db.get('users');
+
+  collection.find({"username": query_name}, function(err, doc){
+    if (err) {
+      res.send("Error Occured");
+    }
+    res.send(doc);
+  });
+});
+
+router.post('/validate/', function(req,res) {
   var username = req.param('username');
-  var email= req.param('emailaddress');
-  var password= req.param('password');
+  var password = req.param('password');
+
+  var db = req.db;
+  var collection = db.get('users');
+
+  collection.find({"username": username, "password": password}, function(err, doc){
+    if (err) {
+      res.send("Error Occured");
+    }
+    if (doc) {
+      res.send("Valid User")
+    } else {
+      res.send("Invalid User");
+    }
+  })
+
+
+
+
+
+
 
 });
 
 router.post('/', function(req, res) {
   console.log("create Something");
 
-  var name=req.param('fullName')
+// reading param value for users
   var username = req.param('username');
-  var email= req.param('emailaddress');
-  var password= req.param('password');
+  var name = req.param('name')
+  var email = req.param('email');
+  var password = req.param('password');
 
   // Set internal db variable
   var db = req.db;
 
  // Setting Collection for People
-  var collection = db.get('people');
+  var collection = db.get('users');
 
   // Submitting to Database
   collection.insert({
-    "fullname": name,
+    "name": name,
     "username": username,
     "email": email,
     "password": password

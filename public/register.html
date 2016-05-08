@@ -1,0 +1,40 @@
+<html>
+<head><title>Music Trivia App</title></head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="javascripts/musicTrivia.js"></script>
+<body>
+  <a href = "index.html"><h1>Music Trivia</h1></a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+      <h3>Register</h3>
+      <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Username" required="true">
+        </div>
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Name" required="true">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required="true">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" required="true">
+        </div>
+        <div class="form-group">
+          <label for="confirmpass">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmpass" placeholder="Password" required="true">
+        </div>
+        <button type="submit" class="btn btn-default" onclick="return registerUser()">Submit</button>
+      </form>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
