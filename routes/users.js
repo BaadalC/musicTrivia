@@ -28,19 +28,12 @@ router.post('/validate/', function(req,res) {
     if (err) {
       res.send("Error Occured");
     }
-    if (doc) {
+    if (doc.length >= 1) {
       res.send("Valid User")
     } else {
       res.send("Invalid User");
     }
   })
-
-
-
-
-
-
-
 });
 
 router.post('/', function(req, res) {

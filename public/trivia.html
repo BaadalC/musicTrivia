@@ -1,20 +1,60 @@
 <html>
-<head><title>Music Trivia App</title></head>
+
+<head>
+    <title>Music Trivia App</title>
+</head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="javascripts/game.js"></script>
 <body>
-  <a href = "index.html"><h1>Music Trivia</h1></a>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">
-      <h3>Trivia Game</h3>
-      <ul>
-        <li>Load Questions from Mongo</li>
-        <li>Implement Gameplay so that questions appear one at a time</li>
-        <li>Complete Game after 10 Questions</li>
-      </ul>
-  </div>
-  </div>
+    <a href="index.html"><h1>Music Trivia</h1></a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Trivia Game</h2>
+                <h3>Game Rules</h3>
+                <ul>
+                    <li>Load Questions from Mongo</li>
+                    <li>Implement Gameplay so that questions appear one at a time</li>
+                    <li>Complete Game after 10 Questions</li>
+                </ul>
+                <hr/>
+                <div class="gameStart">
+                <input class="btn btn-lg btn-block btn-primary" type="button" id="gameStart" value="Start Trivia" onclick="startGame()">
+              </div>
+            </div>
+        </div>
+        <hr/>
+        <br>
+        <div id="gameplay">
+            <div class="row">
+                <div class="col-md-6">
+                    <input class="btn btn-default btn-block btn-info" type="button" id="question" value="Question">
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                        <input class="btn btn-default btn-block btn-default" type="button" id="ans1" value="Answer 1" onclick="checkAnswer(a1)">
+                </div>
+                <div class="col-md-3">
+                    <input class="btn btn-default btn-block btn-default" type="button" id="ans3" value="Answer 3" onclick="checkAnswer(a2)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                        <input class="btn btn-defaul btn-block btn-default" type="button" id="ans2" value="Answer 2" onclick="checkAnswer(a3)">
+                </div>
+                <div class="col-md-3">
+                    <input class="btn btn-default btn-block btn-default" type="button" id="ans4" value="Answer 4" onclick="checkAnswer(a4)">
+                </div>
+            </div>
+        </div>
 </body>
+<script>
+$(document).ready(function(){
+  //Hiding Alert
+  $("#gameplay").hide();
+});
+</script>
 </html>
