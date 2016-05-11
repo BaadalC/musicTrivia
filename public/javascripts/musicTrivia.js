@@ -29,10 +29,10 @@ function createNewUser(_username, _name, _email, _password){
       password: _password
     })
     .done(function(){
-      alert("Called");
+      //alert("Called");
     })
     .success(function(){
-      alert("Success");
+      //alert("Success");
     });
   }
 }

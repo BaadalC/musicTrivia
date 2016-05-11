@@ -9,7 +9,7 @@ router.get('/', function(req, res){
   console.log("Searching questions: " + query_name);
   var db = req.db;
   var collection = db.get('questions');
-  var questionCount = 10;
+  var questionCount =10;
 
   var options = {
     "limit": 5,
