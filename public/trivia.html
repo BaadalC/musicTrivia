@@ -13,48 +13,77 @@
         <div class="row">
             <div class="col-md-6">
                 <h2>Trivia Game</h2>
+                <h4>
+                User: <span id="username"></span><input type="button" value="Logout" onClick="logout()">
+              </h4>
+                <div id="gameStart">
                 <h3>Game Rules</h3>
                 <ul>
-                    <li>Load Questions from Mongo</li>
-                    <li>Implement Gameplay so that questions appear one at a time</li>
-                    <li>Complete Game after 10 Questions</li>
+                    <li>5 Questions each of 10 points Each</li>
+                    <li>Select Answer and Hit Continus Button</li>
                 </ul>
                 <hr/>
-                <div class="gameStart">
-                <input class="btn btn-lg btn-block btn-primary" type="button" id="gameStart" value="Start Trivia" onclick="startGame()">
+                <input class="btn btn-lg btn-block btn-primary" type="button" id="btn_gameStart" value="Start Trivia" onclick="startGame()">
               </div>
             </div>
         </div>
         <hr/>
         <br>
         <div id="gameplay">
+          <br>
+          Score: <span id="score"></span>
+          <br>
+          Question: <span id="count"></span> out of 5
+          <br>
+          <div class = "row">
+            <div class="col-md-6">
+              <div class="alert alert-info" id="message"></div>
+            </div>
+          </div>
             <div class="row">
                 <div class="col-md-6">
-                    <input class="btn btn-default btn-block btn-info" type="button" id="question" value="Question">
+                    <input class="btn btn-default btn-block btn-success" type="button" id="question" value="Question">
               </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
-                        <input class="btn btn-default btn-block btn-default" type="button" id="ans1" value="Answer 1" onclick="checkAnswer(a1)">
+                        <input class="btn btn-default btn-block btn-default" type="button" id="ans1" value="Answer 1" onclick="checkAnswer('a1')">
                 </div>
                 <div class="col-md-3">
-                    <input class="btn btn-default btn-block btn-default" type="button" id="ans3" value="Answer 3" onclick="checkAnswer(a2)">
+                    <input class="btn btn-default btn-block btn-default" type="button" id="ans3" value="Answer 3" onclick="checkAnswer('a3')">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
-                        <input class="btn btn-defaul btn-block btn-default" type="button" id="ans2" value="Answer 2" onclick="checkAnswer(a3)">
+                        <input class="btn btn-defaul btn-block btn-default" type="button" id="ans2" value="Answer 2" onclick="checkAnswer('a2')">
                 </div>
                 <div class="col-md-3">
-                    <input class="btn btn-default btn-block btn-default" type="button" id="ans4" value="Answer 4" onclick="checkAnswer(a4)">
+                    <input class="btn btn-default btn-block btn-default" type="button" id="ans4" value="Answer 4" onclick="checkAnswer('a4')">
                 </div>
             </div>
+            <div class="row">
+              <div class="col-md-6">
+                <input class="btn btn-default btn-primary" type="button" id="continue" value="Continue" onclick="gameContinue()">
+              </div>
+            </div>
+        </div>
+        <div id="scores">
+          <div class="row">
+            <div class="col-md-6 well">
+              <h3>Score</h3>
+              <span id="totalScore"></span>
+            </div>
+          </div>
         </div>
 </body>
 <script>
 $(document).ready(function(){
+  checkValidUser();
   //Hiding Alert
   $("#gameplay").hide();
+  $("#message").hide();
+  $('#scores').hide();
+
 });
 </script>
 </html>

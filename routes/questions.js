@@ -9,10 +9,10 @@ router.get('/', function(req, res){
   console.log("Searching questions: " + query_name);
   var db = req.db;
   var collection = db.get('questions');
-  var questionCount = 5;
+  var questionCount = 10;
 
   var options = {
-    "limit": 2,
+    "limit": 5,
     "skip": Math.random() * questionCount
   }
 
@@ -24,7 +24,6 @@ router.get('/', function(req, res){
     }
     res.send(doc);
   });
-
 
 });
 
