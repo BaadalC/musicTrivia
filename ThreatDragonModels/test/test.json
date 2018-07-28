@@ -1,0 +1,18 @@
+{
+  "summary": {
+    "title": "test",
+    "owner": "test",
+    "description": "test"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "title": "Final Project",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
+    "reviewer": "test"
+  }
+}
